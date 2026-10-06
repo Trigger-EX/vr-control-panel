@@ -91,6 +91,7 @@ step 09_visual         "$VENV_PY" "$KIT/t_visual.py" "$QT" "$OUT/screenshots"
 step 10_visual_125     env QT_SCALE_FACTOR=1.25 "$VENV_PY" "$KIT/t_visual.py" "$QT" "$OUT/screenshots" 800x640 1536x832
 step 11_rollback       "${XVFB[@]}" python3 "$KIT/t_rollback.py" "$QT" "$TK" "$VENV_PY" "$PY311"
 step 12_launch         launch
+step 13_c1_stdin       "$VENV_PY" "$KIT/t_c1_stdin.py" "$TK" "$QT"
 
 echo; echo "=================== summary (logs in $OUT)"
 fail=0
