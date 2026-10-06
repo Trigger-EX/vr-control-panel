@@ -1,0 +1,9 @@
+#!/bin/bash
+# Lifecycle-test adb: reports one fake headset. Anything that talks to it hangs,
+# like a headset that dropped off wifi, unless CXVR_FAKE_ADB_MODE=quick.
+case "$1" in
+  devices) printf 'List of devices attached\n10.9.9.9:5555\tdevice\n'; exit 0 ;;
+  kill-server|start-server|connect|disconnect) exit 0 ;;
+esac
+if [ "$CXVR_FAKE_ADB_MODE" = "quick" ]; then exit 0; fi
+exec -a "cxvr-fake-adb-hang $*" sleep 300

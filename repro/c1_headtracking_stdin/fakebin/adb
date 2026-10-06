@@ -1,0 +1,10 @@
+#!/bin/bash
+# Fake adb for the C1 reproduction. Like the real client, `adb ... shell CMD` reads its standard input
+# (to forward it to the headset) unless -n is given; that is the behaviour the bug depends on.
+echo "$(date +%s.%N) $*" >> "${FAKE_ADB_JOURNAL:?}"
+case "$*" in
+  *" shell "*) [[ "$*" == *" -n "* ]] || cat > /dev/null
+               sleep "$(awk -v s=$RANDOM 'BEGIN{printf "%.2f", 0.3 + (s%1500)/1000}')"; exit 0 ;;
+  *get-state*) echo device; exit 0 ;;
+esac
+exit 0

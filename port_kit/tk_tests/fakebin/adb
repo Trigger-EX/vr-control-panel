@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ "$1" = "-s" ] && [ "$3" = "shell" ]; then
+  export PS1="pacific:/ \$ "
+  echo "fake headset $2"
+  exec sh -i
+fi
+echo "fake adb: $*"
