@@ -497,8 +497,11 @@ Run during a simulated show with the whole fleet, with the Qt panel on the show 
 | 30 Sep 2026 | Audit | Whole-project audit: `cxvr_code_audit_2026-09-30.md` (2 High, 13 Medium, 31 Low, 4 Qt-only, 4 kit). H1 (the headtracking lock inherited by the adb server) reproduced with a real adb; the rest from reading. Nothing changed in either file. |
 | 30 Sep 2026 | Fix plan | `cxvr_audit_fix_plan.md` written at Max effort: four batches, fixes in both panel files, before Phase 2. Decisions A1–A8 assumed, including §14 items 1–3. Next: Batch 1 at Extra high. |
 
-Mirror log (Tkinter fixes mirrored into Qt): none yet. The audit-fix batches will each add a line here,
-with the Tk panel's new md5.
+Mirror log (Tkinter fixes mirrored into Qt). Each audit-fix batch adds a line here, with the Tk panel's new md5.
+
+| Date | Fix | Tk md5 | Qt md5 |
+|---|---|---|---|
+| 6 Oct 2026 | B0 (C1): `< /dev/null` on the four backgrounded subshells in `apply_headtracking_fix`; `stdin=DEVNULL` in `sync_files.run_adb`. Both panels; `EMBEDDED_SCRIPTS` byte-identical; line counts unchanged (3,869 / 4,337). | `d28e612be8d76cb6cbe79a0d18ac4056` | `c8478e43095000002534df0581220b24` |
 
 **Open decisions (for you):**
 - The fix plan's §2: A1–A8 are assumed; say if you want any changed.
